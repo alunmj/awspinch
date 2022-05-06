@@ -13,12 +13,12 @@ $nomatch = $true
 $crumb = 1
 while ($nomatch) {
   Write-Progress "Try number $crumb"
-  $q = ( aws route53 create-reusable-delegation-set --caller-reference $randprefix$crumb | ConvertFrom-Json )
+  $q = New-R53ReusableDelegationSet -CallerReference $randprefix$crumb
   $qq = Compare-Object $q.DelegationSet.NameServers $servers -IncludeEqual -ExcludeDifferent
   if ( $qq.Count -ne 0 ) {
     break
   }
-  aws route53 delete-reusable-delegation-set --id $q.DelegationSet.Id
+  Remove-R53ReusableDelegationSet -Id $q.DelegationSet.Id -Confirm:$false
   $crumb++
 }
-aws route53 create-hosted-zone --name $targetsite --caller-reference $($randprefix)Success --delegation-set-id $q.DelegationSet.Id
+New-R53HostedZone -Name $targetsite -CallerReference $($randprefix)Success -DelegationSetId $q.DelegationSet.Id
