@@ -43,7 +43,7 @@ Even this version was very successful when faced with a domain that needed takin
 Subsequent improvements have been/will be:
 
 1. Done: Using the AWS Tools for PowerShell instead of the AWS CLI
-1. Keeping the Delegation Sets in hand for use in later scans
-1. Checking the Delegation Sets in hand for matches
+1. Done: Keeping the Delegation Sets in hand for use in later scans
+1. Done: Checking the Delegation Sets in hand for matches
 1. Making it a CmdLet so you can provide your own parameters
 1. Scanning for multiple endpoint domains
