@@ -24,7 +24,8 @@ Make sure to set a credential to use with:
 
 ## Use
 
-```./awspinch.ps1 domain.example.com``` -- try and take over domain.example.com
+```. ./awspinch.ps1``` -- load the cmdlet
+```Find-AwsPinch domain.example.com``` -- try and take over domain.example.com
 
 This will try to take over the domain specified, by creating and deleting Delegation Sets until
 a Delegation Set is created that has ONE name server in common with the targeted domain.
@@ -45,5 +46,6 @@ Subsequent improvements have been/will be:
 1. Done: Using the AWS Tools for PowerShell instead of the AWS CLI
 1. Done: Keeping the Delegation Sets in hand for use in later scans
 1. Done: Checking the Delegation Sets in hand for matches
-1. Making it a CmdLet so you can provide your own parameters
-1. Scanning for multiple endpoint domains
+1. Done: Making it a CmdLet so you can provide your own parameters
+1. Done: Scanning for multiple endpoint domains
+1. Run as parallel jobs - does this make it faster?
